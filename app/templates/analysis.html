@@ -1,0 +1,209 @@
+<html>
+ <head>
+  <title>Date Range Search in Datatables</title>
+  <script src="../static/js/jquery-1.12.4.js"></script>
+  <!-- <link rel="stylesheet" href="assets/css/bootstrap.min-3.3.7.css" /> -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="../static/js/jquery.dataTables.min.js"></script>
+  <script src="../static/js/dataTables.bootstrap.min.js"></script>
+  <script src="../static/js/bootstrap.min-3.3.7.js"></script>
+  <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css" />
+  <script src="../static/js/bootstrap-datepicker.js"></script>
+  <script src="../static/js/bootstrap-datepicker.zh-CN.js"></script>
+  <style>
+   body
+   {
+    margin:0;
+    padding:0;
+    background-color:#EEF4F9;
+   }
+   .box
+   {
+    width:97%;
+    padding:20px;
+    background-color:#fff;
+    border:1px solid #ccc;
+    border-radius:5px;
+    margin-top:20px
+   }
+   #upper-right-side div{
+    float: left;
+   }
+
+  #upper-right-side .users-info{
+    padding-right: 12px;
+    border: none; 
+   }
+  #upper-right-side .users-info .btn, #upper-right-side input{
+    border: none; 
+   }
+
+ #left-body{
+    float: left; 
+    background-color: #211F34; 
+    height: 100%; 
+    width: 11.1%;
+  }
+
+  #right-body-down input{
+    background-color:#EEF4F9;
+    border: none;
+  }
+
+  #left-body ul{
+  list-style-type:none; 
+  float: left;
+  margin-top: 40%; 
+  padding: 0px;
+}
+
+  #left-body ul li{
+
+  margin-bottom: 20px; 
+  margin-top: 5px; 
+  display: block;
+  padding-left: 13px;
+}
+  #left-body ul li a{
+color: white;
+}
+  #left-body ul li .glyphicon{
+ font-size: 1.1em;
+ color: white;
+}
+#logo img{
+  margin-top: 25%;
+  width:80%;
+}
+  </style>
+
+
+ </head>
+ <body>
+
+  <div id="left-body"> 
+  <div id="logo"><a href="/index"><img src="../static/img/logo.png"></a></div>
+  <ul >
+      <li >
+        <span class="glyphicon glyphicon-pencil">
+        <a href="http://localhost:5000/index" > 生成报告</a></span>
+      </li>
+      <li >
+        <span  class="glyphicon glyphicon-file">
+        <a href="http://localhost:5000/report" > 报告信息修改</a></span>
+      </li>
+      <li >
+        <span  class="glyphicon glyphicon-object-align-bottom">
+        <a href="http://localhost:5000/graph" > 丢包缺失柱状图</a></span>
+      </li>
+      <li >
+        <span class="glyphicon glyphicon-search lg">
+        <a href="http://localhost:5000/analysis" > 设备丢包分析</a></span>
+      </li>
+      <li >
+        <span class="glyphicon glyphicon-bell">
+        <a href="http://localhost:5000/statistics" > 数据记录统计</a> </span>
+      </li>
+  </ul>
+  </div>
+
+  <div id="right-body" style="float:left; width: 88.9%; overflow: hidden;">
+    <div id="right-body-upper;" style=" position: relative; margin-left:20px;  margin-bottom: 20px; margin-right: 20px; border: none;" class="container box">
+        <h3 style="float: left; margin-top: 4px; padding-bottom:6px; " align="center">Date Range Search in Datatables</h3>
+        <div id="upper-right-side" style="float:right; height: 30px;">
+
+          <div class="form-group col-xs-6">
+            <div style="float:right;" class="inner-addon right-addon">
+              <i style="position: absolute; padding: 10px; pointer-events: none;"; class="glyphicon glyphicon-search"></i>
+              <input type="text" style="background-color:#EEF4F9; padding-left: 30px; border-radius: 24px;" class="form-control" placeholder="Search" />
+            </div>
+          </div>
+
+            <div class="users-info">
+                <a href="#" class="btn btn-default">
+                <span class="glyphicon glyphicon-bell"></span> Bell
+                </a>
+            </div>
+            <div class="users-info">
+                <a href="#" class="btn btn-default "> Light </a>
+            </div>
+            <div class="users-info btn-group dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="glyphicon glyphicon-user"></i>
+              <span class="caret"></span>
+              </button>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="right-body-down" class="container box" style="margin-right: 20px; margin-left:20px; overflow: hidden;">
+      <span style="padding-left: 18px; font-size: 16px;">Select conditions</span>
+       <div class="input-daterange" style="padding-top: 5px;">
+          <div class="col-md-4">
+           <input type="text" name="start_date" id="start_date" class="form-control" />
+          </div>
+          <div class="col-md-4">
+           <input type="text" name="end_date" id="end_date" class="form-control" />
+          </div>      
+       </div>
+       <div class="col-md-4" style="padding-top: 0px;">
+          <input style="background-color:#1890FF;" type="button" name="search" id="search" value="Search" class="btn btn-info" />
+       </div>
+    </div>
+    <div id="graphics" class="container box" style=" margin-bottom: 20px; margin-left: 20px;  background-color: white; overflow: hidden;">
+      <img style="width: 53%; display: block; " src="../static/img/analysis.png">
+    </div>
+
+  </div>
+ </body>
+</html>
+
+
+<script type="text/javascript" language="javascript" >
+     $(document).ready(function() { $.fn.dataTableExt.sErrMode = 'throw'; $('#register').dataTable({ "order": [] }); }); 
+</script>
+<script type="text/javascript" language="javascript" >
+$(document).ready(function(){
+ 
+ $('.input-daterange').datepicker({
+  language: 'zh-CN',
+  todayBtn:'linked',
+  format: "yyyy-mm-dd",
+  autoclose: true
+ });
+
+ fetch_data('no');
+
+ function fetch_data(is_date_search, start_date='', end_date='')
+ {
+  var dataTable = $('#order_data').DataTable({
+   "processing" : true,
+   "serverSide" : true,
+   "order" : [],
+   "ajax" : {
+    url:"../fetch.php",
+    type:"POST",
+    data:{
+     is_date_search:is_date_search, start_date:start_date, end_date:end_date
+    }
+   }
+  });
+ }
+
+ $('#search').click(function(){
+  var start_date = $('#start_date').val();
+  var end_date = $('#end_date').val();
+  if(start_date != '' && end_date !='')
+  {
+   $('#order_data').DataTable().destroy();
+   fetch_data('yes', start_date, end_date);
+  }
+  else
+  {
+   alert("Both Date is Required");
+  }
+ }); 
+ 
+});
+</script>
