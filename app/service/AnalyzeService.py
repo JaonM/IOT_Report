@@ -371,6 +371,7 @@ def analyze_data_time_interval(date, interval=1):
     :param interval: interval times to analyze default 60min
     :return:
     """
+    df_list=[]
     df = load_sensor_group_data(date)
     df.index = pd.to_datetime(df['获取时间'])
     for key in sensor_config.keys():
@@ -421,8 +422,10 @@ def analyze_data_time_interval(date, interval=1):
         df_result = pd.DataFrame(data=results,
                                  columns=['eui', 'start_time', 'end_time', 'require_count', 'received_count',
                                           'lost_rate', 'interval'])
-        df_result.to_csv('../../reports/' + key + ' ' + date + ' per ' + str(interval) + 'hour_lost_rate.csv', index=False,
+        df_list.append(df_result)
+        df_result.to_csv('../../reports/' + key + ' ' + date + '.csv', index=False,
                          encoding='utf-8')
+    return df_list
 
 
 if __name__ == '__main__':

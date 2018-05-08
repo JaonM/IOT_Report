@@ -102,3 +102,7 @@ ENV/
 
 # report
 /reports
+
+.jpg
+
+.idea/

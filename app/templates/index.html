@@ -1,159 +1,169 @@
 ﻿<html>
- <head>
-  <title>商用厨房物联网智能传感器数据分析系统</title>
-  <script src="../static/js/jquery-1.12.4.js"></script>
-  <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" /> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <script src="../static/js/jquery.dataTables.min.js"></script>
-  <script src="../static/js/dataTables.bootstrap.min.js"></script>
-  <script src="../static/js/bootstrap.min-3.3.7.js"></script>
-  <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css" />
-  <script src="../static/js/bootstrap-datepicker.js"></script>
-  <script src="../static/js/bootstrap-datepicker.zh-CN.js"></script>
-  <style>
-    #search-sensor-name ::-webkit-input-placeholder {
-       text-align: center;
-    }
+<head>
+    <title>商用厨房物联网智能传感器数据分析系统</title>
+    <script src="../static/js/jquery-1.12.4.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <script src="../static/js/dataTables.bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap.min-3.3.7.js"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css"/>
+    <script src="../static/js/bootstrap-datepicker.js"></script>
+    <script src="../static/js/bootstrap-datepicker.zh-CN.js"></script>
+    <style>
+        #search-sensor-name ::-webkit-input-placeholder {
+            text-align: center;
+        }
 
-    #search-sensor-name :-moz-placeholder { /* Firefox 18- */
-       text-align: center;  
-    }
+        #search-sensor-name :-moz-placeholder { /* Firefox 18- */
+            text-align: center;
+        }
 
-    #search-sensor-name ::-moz-placeholder {  /* Firefox 19+ */
-       text-align: center;  
-    }
+        #search-sensor-name ::-moz-placeholder { /* Firefox 19+ */
+            text-align: center;
+        }
 
-    #search-sensor-name :-ms-input-placeholder {  
-       text-align: center; 
-    }
-   body
-   {
-    margin:0;
-    padding:0;
-    background-color:#EEF4F9;
-   }
-   .box
-   {
-    width:97%;
-    padding:20px;
-    background-color:#fff;
-    border:1px solid #ccc;
-    border-radius:5px;
-    margin-top:20px;
-   }
-   #upper-right-side div{
-    float: left;
-   }
+        #search-sensor-name :-ms-input-placeholder {
+            text-align: center;
+        }
 
-  #upper-right-side .users-info{
-    padding-right: 12px;
-    border: none; 
-   }
-  #upper-right-side .users-info .btn, #upper-right-side input{
-    border: none; 
-   }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #EEF4F9;
+        }
 
- #left-body{
-    float: left; 
-    background-color: #211F34; 
-    height: 100%; 
-    width: 11%;
-  }
+        .box {
+            width: 97%;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
 
-  #right-body-down input{
-    background-color:#EEF4F9;
-    border: none;
-  }
+        #upper-right-side div {
+            float: left;
+        }
 
-  #left-body ul{
-  list-style-type:none; 
-  float: left;
-  margin-top: 40%; 
-  padding: 0px;
-}
+        #upper-right-side .users-info {
+            padding-right: 12px;
+            border: none;
+        }
 
-  #left-body ul li{
+        #upper-right-side .users-info .btn, #upper-right-side input {
+            border: none;
+        }
 
-  margin-bottom: 20px; 
-  margin-top: 5px; 
-  display: block;
-  padding-left: 11px;
-}
-  #left-body ul li a{
-    color: white;
-}
-  #left-body ul li .glyphicon{
- font-size: 1.1em;
- color: white;
-}
-#logo a img{
-  margin-top: 25%;
-  width:80%;
-}
-.dropdown:hover .dropdown-menu {
-display: block;
-}
-  </style>
+        #left-body {
+            float: left;
+            background-color: #211F34;
+            height: 100%;
+            width: 11%;
+        }
+
+        #right-body-down input {
+            background-color: #EEF4F9;
+            border: none;
+        }
+
+        #left-body ul {
+            list-style-type: none;
+            float: left;
+            margin-top: 40%;
+            padding: 0px;
+        }
+
+        #left-body ul li {
+
+            margin-bottom: 20px;
+            margin-top: 5px;
+            display: block;
+            padding-left: 11px;
+        }
+
+        #left-body ul li a {
+            color: white;
+        }
+
+        #left-body ul li .glyphicon {
+            font-size: 1.1em;
+            color: white;
+        }
+
+        #logo a img {
+            margin-top: 25%;
+            width: 80%;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
 
 
- </head>
- <body>
+</head>
+<body>
 
-  <div id="left-body"> 
-  <div id="logo"><a href="index.html"><img src="../static/img/logo.png"></a></div>
-  <ul >
-      <li >
+<div id="left-body">
+    <div id="logo"><a href="index.html"><img src="../static/img/logo.png"></a></div>
+    <ul>
+        <li>
         <span class="glyphicon glyphicon-pencil">
-        <a href="http://localhost:5000/index" > 生成报告</a></span>
-      </li>
-      <li >
-        <span  class="glyphicon glyphicon-file">
-        <a href="http://localhost:5000/report" > 报告信息修改</a></span>
-      </li>
-      <li >
-        <span  class="glyphicon glyphicon-object-align-bottom">
-        <a href="http://localhost:5000/graph" > 丢包缺失柱状图</a></span>
-      </li>
-      <li >
+        <a href="http://localhost:5000/index"> 生成报告</a></span>
+        </li>
+        <li>
+        <span class="glyphicon glyphicon-file">
+        <a href="http://localhost:5000/report"> 丢包预警</a></span>
+        </li>
+        <li>
+        <span class="glyphicon glyphicon-object-align-bottom">
+        <a href="http://localhost:5000/graph"> 丢包缺失柱状图</a></span>
+        </li>
+        <li>
         <span class="glyphicon glyphicon-search lg">
-        <a href="http://localhost:5000/analysis" > 设备丢包分析</a></span>
-      </li>
-      <li >
+        <a href="http://localhost:5000/analysis"> 设备丢包分析</a></span>
+        </li>
+        <li>
         <span class="glyphicon glyphicon-bell">
-        <a href="http://localhost:5000/statistics" > 数据记录统计</a> </span>
-      </li>
-  </ul>
-  </div>
+        <a href="http://localhost:5000/statistics"> 数据记录统计</a> </span>
+        </li>
+    </ul>
+</div>
 
-  <div id="right-body" style="float:left; width: 89%; ">
-    <div id="right-body-upper;" style=" position: relative; margin-bottom: 20px; margin-right: 20px; border: none;" class="container box">
+<div id="right-body" style="float:left; width: 89%; ">
+    <div id="right-body-upper;" style=" position: relative; margin-bottom: 20px; margin-right: 20px; border: none;"
+         class="container box">
         <h1 style="float: left;" align="center" font-family="Halflings">商用厨房物联网智能传感器数据分析系统</h1>
         <div id="upper-right-side" style="float:right; width:40%;">
 
-          <div class="form-group col-xs-6">
-            <div style="float:right;" class="inner-addon right-addon">
-              <i style="position: absolute; padding: 10px; pointer-events: none;" class="glyphicon glyphicon-search"></i>
-              <input type="text" style="background-color:#EEF4F9; padding-left: 30px; border-radius: 24px;" class="form-control" placeholder="搜索" />
+            <div class="form-group col-xs-6">
+                <div style="float:right;" class="inner-addon right-addon">
+                    <i style="position: absolute; padding: 10px; pointer-events: none;"
+                       class="glyphicon glyphicon-search"></i>
+                    <input type="text" style="background-color:#EEF4F9; padding-left: 30px; border-radius: 24px;"
+                           class="form-control" placeholder="搜索"/>
+                </div>
             </div>
-          </div>
 
             <div class="users-info">
                 <a href="#" class="btn btn-default">
-                <span class="glyphicon glyphicon-bell"></span> 信息
+                    <span class="glyphicon glyphicon-bell"></span> 信息
                 </a>
             </div>
             <div class="users-info">
                 <a href="#" class="btn btn-default "> 管理员 </a>
             </div>
             <div class="users-info btn-group dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <i class="glyphicon glyphicon-user"></i>
-                <span class="caret"></span>
-              </button>
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span class="caret"></span>
+                </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Profile</a></li>
-                  <li><a href="#">Settings</a></li>
-                  <li><a href="#">Logout</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -161,218 +171,225 @@ display: block;
 
 
     <div id="right-body-down" class="container box" style="overflow: hidden;">
-      <h4 style="margin: 0px; border-left: 3px solid #1890FF; padding-left: 5px;">选择条件</h4>
-   
-     <div class="table-responsive" style="overflow: hidden;">
-      <br />
-      <h6 style="margin: 10px 0px 0px 7px; float: left;">选择日期：</h6>
-      <div class="row" style="margin-left: 5.9%">
-         <div class="input-daterange" style="width:60%;" >
-          <div class="col-md-4">
-           <input style="width:100%;" placeholder="2017-05-10" type="text" name="start_date" id="start_date" class="form-control" />
-          </div>
-          <div class="col-md-4">
-           <input style="width:100%;" placeholder="2018-06-10" type="text" name="end_date" id="end_date" class="form-control" />
-          </div> 
-         </div>
+        <h4 style="margin: 0px; border-left: 3px solid #1890FF; padding-left: 5px;">选择条件</h4>
 
-         <div style="width: 13%; float: left;">
-           <select class="selectpicker form-control">
-              <option selected disabled>来源商家</option>
-              <option>安盈</option>
-              <option>。。。</option>
-            </select>
-          </div>
-        <br /><br />
+        <div class="table-responsive" style="overflow: hidden;">
+            <br/>
+            <h6 style="margin: 10px 0px 0px 7px; float: left;">选择日期：</h6>
+            <div class="row" style="margin-left: 5.9%">
+                <div class="input-daterange" style="width:60%;">
+                    <div class="col-md-4">
+                        <input style="width:100%;" placeholder="2017-05-10" type="text" name="start_date"
+                               id="start_date" class="form-control"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input style="width:100%;" placeholder="2018-06-10" type="text" name="end_date" id="end_date"
+                               class="form-control"/>
+                    </div>
+                </div>
 
-        <div id="search-sensor-name" style="width: 37.6%; float: left; margin: 0px 23px 0px 3px" >
-           <input style="width:100%; margin-left: 10px;" type="text" class="form-control" placeholder="传感器名称" />
-        </div>      
+                <div style="width: 13%; float: left;">
+                    <select class="selectpicker form-control">
+                        <option selected disabled>来源商家</option>
+                        <option>安盈</option>
+                        <option>。。。</option>
+                    </select>
+                </div>
+                <br/><br/>
 
-        <div style="width: 13%; float: left;">
-          <select class="selectpicker form-control">
-            <option selected disabled>状态</option>
-            <option>启用</option>
-            <option>。。。</option>
-          </select>
+                <div id="search-sensor-name" style="width: 37.6%; float: left; margin: 0px 23px 0px 3px">
+                    <input style="width:100%; margin-left: 10px;" type="text" class="form-control" placeholder="传感器名称"/>
+                </div>
+
+                <div style="width: 13%; float: left;">
+                    <select class="selectpicker form-control">
+                        <option selected disabled>状态</option>
+                        <option>启用</option>
+                        <option>。。。</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4" style="float: right; width: 13%; margin-top: -18px;">
+                    <input style=" height:7%; background-color:#1890FF;" type="button" name="generate" id="generate"
+                           value="点击生成报告" class="btn btn-info"/>
+                </div>
+            </div>
+            <br/>
+            <table id="order_data" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>传感器名称</th>
+                    <!--<th>图片</th>-->
+                    <th>传感器编码</th>
+                    <th>类型</th>
+                    <!--<th>所属设备</th>-->
+                    <th>所属商家</th>
+                    <th>来源商家</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                </tr>
+                <tr>
+                </thead>
+                <td>51</td>
+                <td>传感器4</td>
+                <td>9896830000000002</td>
+                <td>1</td>
+                <td>丽思卡尔顿酒店</td>
+                <td>安盈科技</td>
+                <td>3</td>
+                <td>2017-10-19</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td>传感器5</td>
+                    <td>9896830000000003</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>安盈科技</td>
+                    <td>3</td>
+                    <td>2017-10-19</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td>传感器6</td>
+                    <td>9896830000000004</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>安盈科技</td>
+                    <td>3</td>
+                    <td>2017-10-19</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td>传感器8</td>
+                    <td>9896830000000006</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>安盈科技</td>
+                    <td>3</td>
+                    <td>2017-10-19</td>
+                </tr>
+                <tr>
+                    <td>56</td>
+                    <td>传感器10</td>
+                    <td>9896830000000010</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>安盈科技</td>
+                    <td>3</td>
+                    <td>2017-10-19</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>7B07</td>
+                    <td>3430363064377B07</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>宜达升</td>
+                    <td>3</td>
+                    <td>2017-01-03</td>
+                </tr>
+                <tr>
+                    <td>105</td>
+                    <td>8607</td>
+                    <td>3430363064378607</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>宜达升</td>
+                    <td>3</td>
+                    <td>2017-01-03</td>
+                </tr>
+                <tr>
+                    <td>106</td>
+                    <td>5E05</td>
+                    <td>343036305D375E05</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>宜达升</td>
+                    <td>3</td>
+                    <td>2017-01-03</td>
+                </tr>
+                <tr>
+                    <td>109</td>
+                    <td>8007</td>
+                    <td>3430363064378007</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>宜达升</td>
+                    <td>3</td>
+                    <td>2017-01-03</td>
+                </tr>
+                <tr>
+                    <td>111</td>
+                    <td>6506</td>
+                    <td>3430363057376506</td>
+                    <td>1</td>
+                    <td>丽思卡尔顿酒店</td>
+                    <td>宜达升</td>
+                    <td>3</td>
+                    <td>2017-01-03</td>
+                </tr>
+            </table>
+
         </div>
-
-         <div class="col-md-4" style="float: right; width: 13%; margin-top: -18px;">
-          <input style=" height:7%; background-color:#1890FF;" type="button" name="generate" id="generate" value="点击生成报告" class="btn btn-info" />
-         </div>
-      </div>
-      <br />
-      <table id="order_data" class="table table-bordered table-striped">
-       <thead>
-        <tr>
-         <th>序号</th>
-         <th>传感器名称</th>
-         <!--<th>图片</th>-->
-         <th>传感器编码</th>
-         <th>类型</th>
-         <!--<th>所属设备</th>-->
-         <th>所属商家</th>
-         <th>来源商家</th>
-         <th>状态</th>
-         <th>创建时间</th>
-        </tr>
-       <tr>
-         <td>51</td>
-         <td>传感器4</td>
-         <td>9896830000000002</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>安盈科技</td>
-         <td>3</td>
-         <td>2017-10-19</td>
-        </tr>
-       <tr>
-         <td>52</td>
-         <td>传感器5</td>
-         <td>9896830000000003</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>安盈科技</td>
-         <td>3</td>
-         <td>2017-10-19</td>
-        </tr>
-       <tr>
-         <td>53</td>
-         <td>传感器6</td>
-         <td>9896830000000004</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>安盈科技</td>
-         <td>3</td>
-         <td>2017-10-19</td>
-        </tr>
-       <tr>
-         <td>55</td>
-         <td>传感器8</td>
-         <td>9896830000000006</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>安盈科技</td>
-         <td>3</td>
-         <td>2017-10-19</td>
-        </tr>
-       <tr>
-         <td>56</td>
-         <td>传感器10</td>
-         <td>9896830000000010</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>安盈科技</td>
-         <td>3</td>
-         <td>2017-10-19</td>
-        </tr>
-       <tr>
-         <td>103</td>
-         <td>7B07</td>
-         <td>3430363064377B07</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>宜达升</td>
-         <td>3</td>
-         <td>2017-01-03</td>
-        </tr>
-       <tr>
-         <td>105</td>
-         <td>8607</td>
-         <td>3430363064378607</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>宜达升</td>
-         <td>3</td>
-         <td>2017-01-03</td>
-        </tr>
-       <tr>
-         <td>106</td>
-         <td>5E05</td>
-         <td>343036305D375E05</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>宜达升</td>
-         <td>3</td>
-         <td>2017-01-03</td>
-        </tr>
-       <tr>
-         <td>109</td>
-         <td>8007</td>
-         <td>3430363064378007</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>宜达升</td>
-         <td>3</td>
-         <td>2017-01-03</td>
-        </tr>
-       <tr>
-         <td>111</td>
-         <td>6506</td>
-         <td>3430363057376506</td>
-         <td>1</td>
-         <td>丽思卡尔顿酒店</td>
-         <td>宜达升</td>
-         <td>3</td>
-         <td>2017-01-03</td>
-        </tr>
-       </thead>
-      </table>
-      
-     </div>
     </div>
-  </div>
-<script type="text/javascript" language="javascript" >
-     $(document).ready(function() { $.fn.dataTableExt.sErrMode = 'throw'; $('#register').dataTable({ "order": [] }); }); 
-</script>
-  <script type="text/javascript" language="javascript" >
-      $(document).ready(function(){
-       
-       $('.input-daterange').datepicker({
-        language: 'zh-CN',
-        todayBtn:'linked',
-        format: "yyyy-mm-dd",
-        autoclose: true
-       });
+</div>
+<!--<script type="text/javascript" language="javascript" >-->
+<!--$(document).ready(function() { $.fn.dataTableExt.sErrMode = 'throw'; $('#register').dataTable({ "order": [] }); }); -->
+<!--</script>-->
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
 
-       fetch_data('no');
-
-       function fetch_data(is_date_search, start_date='', end_date='')
-       {
-        var dataTable = $('#order_data').DataTable({
-         "processing" : true,
-         "serverSide" : true,
-         "order" : [],
-         "ajax" : {
-          url:"fetch.php",
-          type:"POST",
-          data:{
-           is_date_search:is_date_search, start_date:start_date, end_date:end_date
-          }
-         }
+        $('.input-daterange').datepicker({
+            language: 'zh-CN',
+            todayBtn: 'linked',
+            format: "yyyy-mm-dd",
+            autoclose: true
         });
-        // console.log(result);
-       }
 
-       $('#search').click(function(){
-        var start_date = $('#start_date').val();
-        var end_date = $('#end_date').val();
-        if(start_date != '' && end_date !='')
-        {
-         $('#order_data').DataTable().destroy();
-         fetch_data('yes', start_date, end_date);
-          // console.log(result);
-        }
-        else
-        {
-         alert("Both Date is Required");
-        }
-       }); 
-       // console.log(dataTable);
-       
-      });
+        // fetch_data('no');
+
+        // function fetch_data(is_date_search, start_date='', end_date='')
+        // {
+        //  var dataTable = $('#order_data').DataTable({
+        //   "processing" : true,
+        //   "serverSide" : true,
+        //   "order" : [],
+        //   "ajax" : {
+        //    url:"/generating_report",
+        //    type:"POST",
+        //    data:{
+        //     is_date_search:is_date_search, start_date:start_date, end_date:end_date
+        //    }
+        //   }
+        //  });
+        //  // console.log(result);
+        // }
+
+        $('#generate').click(function () {
+            var start_date = $('#start_date').val();
+            var end_date = $('#end_date').val();
+            if (start_date != '' && end_date != '') {
+                alert(start_date)
+                // $('#order_data').DataTable().destroy();
+                // fetch_data('yes', start_date, end_date);
+                // console.log(result);
+                $.ajax({
+                    url: '/generate_report',
+                    data: {start_date: start_date, end_date: end_date},
+                    type: 'POST',
+                });
+            }
+            else {
+                alert("Both Date is Required");
+            }
+        });
+        // console.log(dataTable);
+
+    });
 
 </script>
- </body>
+</body>
 </html>
 

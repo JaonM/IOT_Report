@@ -1,235 +1,303 @@
 ﻿<html>
- <head>
-  <title>商用厨房物联网智能传感器数据分析系统</title>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<!-- <link rel="stylesheet" href="assets/css/bootstrap.min-3.3.7.css" /> -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-  <script src="../assets/js/bootstrap.min-3.3.7.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-  <script src="../assets/js/bootstrap-datepicker.zh-CN.js"></script>
-  <style>
-   body
-   {
-    margin:0;
-    padding:0;
-    background-color:#EEF4F9;
-   }
-   .box
-   {
-    width:97%;
-    padding:20px;
-    background-color:#fff;
-    border:1px solid #ccc;
-    border-radius:5px;
-    margin-top:20px;
-   }
-   #upper-right-side div{
-    float: left;
-   }
+<head>
+    <title>商用厨房物联网智能传感器数据分析系统</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min-3.3.7.css" /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.min-3.3.7.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <script src="../assets/js/bootstrap-datepicker.zh-CN.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #EEF4F9;
+        }
 
-  #upper-right-side .users-info{
-    padding-right: 12px;
-    border: none; 
-   }
-  #upper-right-side .users-info .btn, #upper-right-side input{
-    border: none; 
-   }
+        .box {
+            width: 97%;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
 
- #left-body{
-    float: left; 
-    background-color: #211F34; 
-    height: 100%; 
-    width: 11%;
-  }
+        #upper-right-side div {
+            float: left;
+        }
 
-  #right-body-down input{
-    background-color:#EEF4F9;
-    border: none;
-  }
+        #upper-right-side .users-info {
+            padding-right: 12px;
+            border: none;
+        }
 
-  #left-body ul{
-  list-style-type:none; 
-  float: left;
-  margin-top: 40%; 
-  padding: 0px;
-}
+        #upper-right-side .users-info .btn, #upper-right-side input {
+            border: none;
+        }
 
-  #left-body ul li{
+        #left-body {
+            float: left;
+            background-color: #211F34;
+            height: 100%;
+            width: 11%;
+        }
 
-  margin-bottom: 20px; 
-  margin-top: 5px; 
-  display: block;
-  padding-left: 13px;
-}
-  #left-body ul li a{
-  color: white;
-}
-  #left-body ul li .glyphicon{
- font-size: 1em;
- color: white;
-}
-#logo img{
-  margin-top: 25%;
-  width:80%;
-}
-.container box{
-  margin-left: 20px;
-  margin-right: 20px;
-}
-  </style>
+        #right-body-down input {
+            background-color: #EEF4F9;
+            border: none;
+        }
+
+        #left-body ul {
+            list-style-type: none;
+            float: left;
+            margin-top: 40%;
+            padding: 0px;
+        }
+
+        #left-body ul li {
+
+            margin-bottom: 20px;
+            margin-top: 5px;
+            display: block;
+            padding-left: 13px;
+        }
+
+        #left-body ul li a {
+            color: white;
+        }
+
+        #left-body ul li .glyphicon {
+            font-size: 1em;
+            color: white;
+        }
+
+        #logo img {
+            margin-top: 25%;
+            width: 80%;
+        }
+
+        .container box {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
 
 
- </head>
- <body>
+</head>
+<body>
 
-  <div id="left-body"> 
-  <div id="logo"><a href="/index"><img src="../static/img/logo.png"></a></div>
-  <ul >
-      <li >
+<div id="left-body">
+    <div id="logo"><a href="/index"><img src="../static/img/logo.png"></a></div>
+    <ul>
+        <li>
         <span class="glyphicon glyphicon-pencil">
-        <a href="http://localhost:5000/index" > 生成报告</a></span>
-      </li>
-      <li >
-        <span  class="glyphicon glyphicon-file">
-        <a href="http://localhost:5000/report" > 报告信息修改</a></span>
-      </li>
-      <li >
-        <span  class="glyphicon glyphicon-object-align-bottom">
-        <a href="http://localhost:5000/graph" > 丢包缺失柱状图</a></span>
-      </li>
-      <li >
+        <a href="http://localhost:5000/index"> 生成报告</a></span>
+        </li>
+        <li>
+        <span class="glyphicon glyphicon-file">
+        <a href="http://localhost:5000/report"> 丢包预警</a></span>
+        </li>
+        <li>
+        <span class="glyphicon glyphicon-object-align-bottom">
+        <a href="http://localhost:5000/graph"> 丢包缺失柱状图</a></span>
+        </li>
+        <li>
         <span class="glyphicon glyphicon-search lg">
-        <a href="http://localhost:5000/analysis" > 设备丢包分析</a></span>
-      </li>
-      <li >
+        <a href="http://localhost:5000/analysis"> 设备丢包分析</a></span>
+        </li>
+        <li>
         <span class="glyphicon glyphicon-bell">
-        <a href="http://localhost:5000/statistics" > 数据记录统计</a> </span>
-      </li>
-  </ul>
-  </div>
+        <a href="http://localhost:5000/statistics"> 数据记录统计</a> </span>
+        </li>
+    </ul>
+</div>
 
-  <div id="right-body" style="float:left; width: 89%; ">
-    <div id="right-body-upper;" style=" position: relative; margin-bottom: 20px; margin-right: 20px; border: none;" class="container box">
+<div id="right-body" style="float:left; width: 89%; ">
+    <div id="right-body-upper;" style=" position: relative; margin-bottom: 20px; margin-right: 20px; border: none;"
+         class="container box">
         <h1 style="float: left;" align="center">商用厨房物联网智能传感器数据分析系统</h1>
         <div id="upper-right-side" style="float:right;">
 
-          <div class="form-group col-xs-6">
-            <div style="float:right;" class="inner-addon right-addon">
-              <i style="position: absolute; padding: 10px; pointer-events: none;"; class="glyphicon glyphicon-search"></i>
-              <input type="text" style="background-color:#EEF4F9; padding-left: 30px; border-radius: 24px;" class="form-control" placeholder="Search" />
+            <div class="form-group col-xs-6">
+                <div style="float:right;" class="inner-addon right-addon">
+                    <i style="position: absolute; padding: 10px; pointer-events: none;" ;
+                       class="glyphicon glyphicon-search"></i>
+                    <input type="text" style="background-color:#EEF4F9; padding-left: 30px; border-radius: 24px;"
+                           class="form-control" placeholder="Search"/>
+                </div>
             </div>
-          </div>
 
             <div class="users-info">
                 <a href="#" class="btn btn-default">
-                <span class="glyphicon glyphicon-bell"></span> Bell
+                    <span class="glyphicon glyphicon-bell"></span> Bell
                 </a>
             </div>
             <div class="users-info">
                 <a href="#" class="btn btn-default "> Light </a>
             </div>
             <div class="users-info btn-group dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <i class="glyphicon glyphicon-user"></i>
-              <span class="caret"></span>
-              </button>
-          </div>
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span class="caret"></span>
+                </button>
+            </div>
         </div>
     </div>
 
 
     <div id="right-body-down" class="container box" style="margin-right: 20px; margin-left:20px;overflow: hidden;">
-     <br />
-     <div class="table-responsive" style="overflow: hidden;">
-      <br />
-      <div class="row">
-       <div class="input-daterange">
-        <div class="col-md-4">
-         <input type="text" name="start_date" id="start_date" class="form-control" />
+        <br/>
+        <div class="table-responsive" style="overflow: hidden;">
+            <br/>
+            <div class="row">
+                <div class="input-daterange">
+                    <div class="col-md-4">
+                        <input type="text" name="start_date" id="start_date" class="form-control" value="开始时间"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" name="end_date" id="end_date" class="form-control" value="结束时间"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input style="background-color:#1890FF;" type="button" name="search" id="search" value="Search"
+                           class="btn btn-info"/>
+                </div>
+            </div>
+            <br/>
+            <table id="order_data" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>eui</th>
+                    <th>温度</th>
+                    <th>湿度</th>
+                    <th>电量</th>
+                    <!--<th>电流</th>-->
+                    <!--<th>电压</th>-->
+                    <!--<th>功率</th>-->
+                    <th>时间</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>343036305D375E05</td>
+                    <td>23.16</td>
+                    <td>71.22</td>
+                    <td>85.56</td>
+                    <td>2018-03-15 00:00:00</td>
+                </tr>
+            </table>
+
         </div>
-        <div class="col-md-4">
-         <input type="text" name="end_date" id="end_date" class="form-control" />
-        </div>      
-       </div>
-       <div class="col-md-4">
-        <input style="background-color:#1890FF;" type="button" name="search" id="search" value="Search" class="btn btn-info" />
-       </div>
-      </div>
-      <br />
-      <table id="order_data" class="table table-bordered table-striped">
-       <thead>
-        <tr>
-             <th>序号</th>
-             <th>传感器名称</th>
-             <th>图片</th>
-             <th>传感器编码</th>
-             <th>设备状态</th>
-             <th>所属设备</th>
-             <th>所属商家</th>
-             <th>电容量(%C)</th>
-             <th>温度(%RH)</th>
-             <th>电量(A)</th>
-             <th>电压(U)</th>
-             <th>功率(W)</th>
-             <th>获取时间</th>
-        </tr>
-       </thead>
-      </table>
-      
-     </div>
     </div>
-  </div>
- </body>
+</div>
+</body>
 </html>
 
 
-<script type="text/javascript" language="javascript" >
-     $(document).ready(function() { $.fn.dataTableExt.sErrMode = 'throw'; $('#register').dataTable({ "order": [] }); }); 
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        $.fn.dataTableExt.sErrMode = 'throw';
+        $('#register').dataTable({"order": []});
+    });
 </script>
-<script type="text/javascript" language="javascript" >
-$(document).ready(function(){
- 
- $('.input-daterange').datepicker({
-  language: 'zh-CN',
-  todayBtn:'linked',
-  format: "yyyy-mm-dd",
-  autoclose: true
- });
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
 
- fetch_data('no');
+        $('.input-daterange').datepicker({
+            language: 'zh-CN',
+            todayBtn: 'linked',
+            format: "yyyy-mm-dd",
+            autoclose: true
+        });
 
- function fetch_data(is_date_search, start_date='', end_date='')
- {
-  var dataTable = $('#order_data').DataTable({
-   "processing" : true,
-   "serverSide" : true,
-   "order" : [],
-   "ajax" : {
-    url:"../fetch_stats.php",
-    type:"POST",
-    data:{
-     is_date_search:is_date_search, start_date:start_date, end_date:end_date
-    }
-   }
-  });
- }
 
- $('#search').click(function(){
-  var start_date = $('#start_date').val();
-  var end_date = $('#end_date').val();
-  if(start_date != '' && end_date !='')
-  {
-   $('#order_data').DataTable().destroy();
-   fetch_data('yes', start_date, end_date);
-  }
-  else
-  {
-   alert("Both Date is Required");
-  }
- }); 
- 
-});
+        function fetch_data(is_date_search, start_date='', end_date='') {
+            var dataTable = $('#order_data').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "order": [],
+                "ajax": {
+                    url: "../fetch_stats.php",
+                    type: "POST",
+                    data: {
+                        is_date_search: is_date_search, start_date: start_date, end_date: end_date
+                    }
+                }
+            });
+        }
+
+        $('#search').click(function () {
+            var start_date = $('#start_date').val();
+            var end_date = $('#end_date').val();
+            if (start_date != '' && end_date != '') {
+                $('#order_data').DataTable().destroy();
+                fetch_data('yes', start_date, end_date);
+            }
+            else {
+                alert("Both Date is Required");
+            }
+        });
+
+    });
 </script>

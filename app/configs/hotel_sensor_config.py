@@ -4,13 +4,13 @@
 """
 
 sensor_config = {
-    '中科能源': [
-        {'eui': '3786E6ED0034004B', 'frequency': 180, 'require_frequency': 180},
-        {'eui': '3768B26900230053', 'frequency': 180, 'require_frequency': 180},
-        {'eui': '4768B269002B0059', 'frequency': 180, 'require_frequency': 180},
-        {'eui': '4768B269001F003F', 'frequency': 180, 'require_frequency': 180},
-        {'eui': '4778B269003B002F', 'frequency': 180, 'require_frequency': 180}
-    ],
+    # '中科能源': [
+    #     {'eui': '3786E6ED0034004B', 'frequency': 180, 'require_frequency': 180},
+    #     {'eui': '3768B26900230053', 'frequency': 180, 'require_frequency': 180},
+    #     {'eui': '4768B269002B0059', 'frequency': 180, 'require_frequency': 180},
+    #     {'eui': '4768B269001F003F', 'frequency': 180, 'require_frequency': 180},
+    #     {'eui': '4778B269003B002F', 'frequency': 180, 'require_frequency': 180}
+    # ],
     '安盈科技': [
         {'eui': '9896830000000008', 'frequency': 180, 'require_frequency': 180},
         {'eui': '9896830000000002', 'frequency': 180, 'require_frequency': 180},
