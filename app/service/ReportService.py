@@ -158,14 +158,61 @@ def load_data(start_date, end_date, page_num):
                                      or tb2.eui='9896830000000004' or tb2.eui = '9896830000000006' or tb2.eui = '3786E6ED0034004B' or \
                                      tb2.eui = '3768B26900230053' or tb2.eui = '4768B269002B0059' or tb2.eui = '4768B269001F003F' or \
                                      tb2.eui='4778B269003B002F' or tb2.eui='3430363057376506' or tb2.eui='3430363067378B07' or tb2.eui = '3430363064378607' \
-                                     or tb2.eui='343036305D375E05' or tb2.eui = '3430363064378007') and tb2.ts > '" + start_date + "' and tb2.ts< '" + end_date + "'  ORDER BY tb2.ts ASC limit " + str(page_num) + ",20")
+                                     or tb2.eui='343036305D375E05' or tb2.eui = '3430363064378007') and tb2.ts > '" + start_date + "' and tb2.ts< '" + end_date + "'  ORDER BY tb2.ts ASC limit " + str(
+        page_num) + ",20")
     result = list()
     for row in cursor.fetchall():
-        result.append({'eui': row[0], 'temperature': row[0], 'humidity': row[1],'battery':row[2],'current':row[3],
-                       'voltage':row[4],'power':row[5],'time':row[6]})
+        result.append({'eui': row[0], 'temperature': row[0], 'humidity': row[1], 'battery': row[2], 'time': row[6]})
     return result
+
+
+def alert(date):
+    """
+    丢包预警接口
+    :param date: 日期 xxxx-xx-xx
+    :return:
+    """
+    files = os.listdir('../static/data_img')
+    exist = False
+    for file in files:
+        if date in file:
+            exist = True
+            break
+    if not exist:
+        create_data_img(date)
+    file_list = list()
+    for file in files:
+        if date in file:
+            file_list.append(file)
+    result_list = []
+    for df in analyze_data_time_interval(date):
+        for eui in df['eui'].unique():
+            result = dict()
+            result['eui'] = eui
+            for file in file_list:
+                if file.split()[0] == str(eui):
+                    result['img_path'] = file
+            sub_df = df[df['eui'] == eui]
+            alert_list = list()
+            for index, item in sub_df.iterrows():
+                if 0.3 <= item['lost_rate'] < 0.6:
+                    alert_list.append(
+                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '轻微丢包'})
+                elif 0.6 <= item['lost_rate'] < 0.8:
+                    alert_list.append(
+                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '中等严重丢包'})
+                elif item['lost_rate'] >= 0.8:
+                    alert_list.append(
+                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '严重丢包'})
+                else:
+                    alert_list.append(
+                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '正常接收'})
+            result['alert'] = alert_list
+            result_list.append(result)
+    return result_list
 
 
 if __name__ == '__main__':
     # create_data_img('2018-03-15')
-    print(load_data('2018-03-15','2018-03-16',1))
+    # print(load_data('2018-03-15', '2018-03-16', 1))
+    print(alert('2018-03-15'))
