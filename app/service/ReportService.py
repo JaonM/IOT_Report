@@ -213,6 +213,6 @@ def alert(date):
 
 
 if __name__ == '__main__':
-    # create_data_img('2018-03-15')
+    create_data_img('2018-03-15')
     # print(load_data('2018-03-15', '2018-03-16', 1))
-    print(alert('2018-03-15'))
+    # print(alert('2018-03-15'))
