@@ -132,6 +132,7 @@ def create_data_img(date):
                 print(sub_df.head())
                 sub_df.plot(kind='bar', title=str(eui) + ' ' + date)
                 # plt.show()
+                plt.tight_layout()
                 plt.savefig('../static/data_img/' + str(eui) + ' ' + date + '.jpg')
                 img_list.append('../static/data_img/' + str(eui) + ' ' + date + '.jpg')
         return img_list
