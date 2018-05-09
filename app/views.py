@@ -5,7 +5,7 @@ from flask import render_template, request, jsonify
 
 from app import app
 from app.service.AnalyzeService import analyze_data_time_interval, analyze_data
-from app.service.ReportService import generalize_report, insert_report, create_data_img, load_data
+from app.service.ReportService import generalize_report, insert_report, create_data_img, load_data, alert
 
 
 @app.route('/')
@@ -55,10 +55,10 @@ def generating_report():
         return jsonify({'code': code, 'info': '生成成功'})
 
 
-@app.route('/generate_graph')
+@app.route('/generate_graph', methods=['POST'])
 def generate_graph():
-    start_date = request.args.get('start_date')
-    end_date = request.args.get('end_date')
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
     start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
     all = []
@@ -73,14 +73,14 @@ def generate_graph():
         return jsonify({'code': code, 'info': '生成成功', 'file_paths': all})
 
 
-@app.route('/loss_rate_analyze')
+@app.route('/loss_rate_analyze', methods=['POST'])
 def loss_rate_analyze():
     """
     分析丢包率
     :return:
     """
-    start_date = request.args.get('start_date')
-    end_date = request.args.get('end_date')
+    start_date = request.form['start_date']
+    end_date = request.args['end_date']
     start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
     code = 1
@@ -97,16 +97,26 @@ def loss_rate_analyze():
     return jsonify({'code': code, 'result': result_list})
 
 
-@app.route('/load_data')
+@app.route('/load_data', methods=['POST'])
 def load():
-    start_date = request.args.get('start_date')
-    end_date = request.args.get('end_date')
-    page_num = request.args.get('page_num')
+    start_date = request['start_date']
+    end_date = request['end_date']
+    page_num = request['page_num']
     result = load_data(start_date, end_date, page_num)
     code = 1
     if len(result) == 0:
         code = -1
-    return {'code': code, 'result': result}
+    return jsonify({'code': code, 'result': result})
+
+
+@app.route('/alert', methods=['POST'])
+def alert():
+    date = request['date']
+    results = alert(date)
+    code = 1
+    if len(results) == 0:
+        code = -1
+    return jsonify({'code': code, 'results': results})
 
 
 if __name__ == '__main__':
