@@ -157,7 +157,7 @@
             </div>
         </div>
         <div class="col-md-4" style="padding-top: 0px;">
-            <input style="background-color:#1890FF;" type="button" name="search" id="search" value="搜索"
+            <input style="background-color:#1890FF;" type="button" name="analyze" id="analyze" value="分析"
                    class="btn btn-info"/>
         </div>
     </div>
@@ -176,69 +176,69 @@
                 <th>间隔时间/h</th>
             </tr>
             </thead>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>343036305D375E05</td>
-                <td>2018-03-15 00:00:00</td>
-                <td>2018-03-15 01:00:00</td>
-                <td>12</td>
-                <td>12</td>
-                <td>0</td>
-                <td>1</td>
-            </tr>
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>343036305D375E05</td>-->
+                <!--<td>2018-03-15 00:00:00</td>-->
+                <!--<td>2018-03-15 01:00:00</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>0</td>-->
+                <!--<td>1</td>-->
+            <!--</tr>-->
         </table>
     </div>
 
@@ -262,27 +262,45 @@
 
         // fetch_data('no');
 
-        function fetch_data(is_date_search, start_date='', end_date='') {
-            var dataTable = $('#order_data').DataTable({
-                "processing": true,
-                "serverSide": true,
-                "order": [],
-                "ajax": {
-                    url: "../fetch.php",
-                    type: "POST",
-                    data: {
-                        is_date_search: is_date_search, start_date: start_date, end_date: end_date
-                    }
-                }
-            });
-        }
+        // function fetch_data(is_date_search, start_date='', end_date='') {
+        //     var dataTable = $('#order_data').DataTable({
+        //         "processing": true,
+        //         "serverSide": true,
+        //         "order": [],
+        //         "ajax": {
+        //             url: "../fetch.php",
+        //             type: "POST",
+        //             data: {
+        //                 is_date_search: is_date_search, start_date: start_date, end_date: end_date
+        //             }
+        //         }
+        //     });
+        // }
 
-        $('#search').click(function () {
+        $('#analyze').click(function () {
             var start_date = $('#start_date').val();
             var end_date = $('#end_date').val();
             if (start_date != '' && end_date != '') {
-                $('#order_data').DataTable().destroy();
-                fetch_data('yes', start_date, end_date);
+                alert(start_date);
+                $.post('/loss_rate_analyze',
+                    {
+                        start_date: start_date,
+                        end_date: end_date
+                    },
+                    function (data, status) {
+                        if (data.code == 1) {
+                            var table=$('#order_data');
+                            for (i = 0; i < data.result.length; i++) {
+                                // alert(data.result[i].eui)
+                                var obj = data.result[i];
+                                table.append('<tr><td>'+obj.eui+'</td><td>'+obj.start_time.toString()+'</td>' +
+                                    '<td>'+obj.end_time.toString()+'</td><td>'+obj.require_count+'</td>' +
+                                    '<td>'+obj.received_count+'</td><td>'+obj.lost_rate+'</td>' +
+                                    '<td>'+obj.interval+'</td></tr>');
+                            }
+                        }
+                    }
+                );
             }
             else {
                 alert("Both Date is Required");

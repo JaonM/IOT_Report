@@ -428,8 +428,8 @@ def analyze_data_time_interval(date, interval=1):
     return df_list
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # df = load_data('2018-01-26')
     # print(df.head())
-    for date in ['2018-03-15', '2018-03-16', '2018-03-17']:
-        analyze_data_time_interval(date, 1)
+    # for date in ['2018-03-15', '2018-03-16', '2018-03-17']:
+    #     analyze_data_time_interval(date, 1)

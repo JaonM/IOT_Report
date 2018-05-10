@@ -81,13 +81,13 @@ def loss_rate_analyze():
     :return:
     """
     start_date = request.form['start_date']
-    end_date = request.args['end_date']
+    end_date = request.form['end_date']
     start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
     code = 1
     all = list()
     while start_date <= end_date:
-        df_list = analyze_data_time_interval(start_date)
+        df_list = analyze_data_time_interval(str(start_date).split()[0])
         start_date = start_date + datetime.timedelta(days=1)
         all.extend(df_list)
     result_list = []
