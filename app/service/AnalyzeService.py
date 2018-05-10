@@ -423,7 +423,7 @@ def analyze_data_time_interval(date, interval=1):
                                  columns=['eui', 'start_time', 'end_time', 'require_count', 'received_count',
                                           'lost_rate', 'interval'])
         df_list.append(df_result)
-        df_result.to_csv('../../reports/' + key + ' ' + date + '.csv', index=False,
+        df_result.to_csv('./reports/' + key + ' ' + date + '.csv', index=False,
                          encoding='utf-8')
     return df_list
 

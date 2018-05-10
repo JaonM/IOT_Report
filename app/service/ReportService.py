@@ -122,9 +122,9 @@ def create_data_img(date):
         for key in sensor_config.keys():
             # for sensor in sensor_config[key]:
             #     eui = sensor['eui']
-            if not os.path.exists('../../reports/' + key + ' ' + date + '.csv'):
+            if not os.path.exists('./reports/' + key + ' ' + date + '.csv'):
                 analyze_data_time_interval(date=date)
-            df = pd.read_csv('../../reports/' + key + ' ' + date + '.csv', encoding='utf-8')
+            df = pd.read_csv('./reports/' + key + ' ' + date + '.csv', encoding='utf-8')
 
             for eui in df['eui'].unique():
                 sub_df = df[df['eui'] == eui][['start_time', 'received_count']]
@@ -133,7 +133,7 @@ def create_data_img(date):
                 sub_df.plot(kind='bar', title=str(eui) + ' ' + date)
                 # plt.show()
                 plt.tight_layout()
-                plt.savefig('../static/data_img/' + str(eui) + ' ' + date + '.jpg')
+                plt.savefig('./app/static/data_img/' + str(eui) + ' ' + date + '.jpg')
                 img_list.append('../static/data_img/' + str(eui) + ' ' + date + '.jpg')
         return img_list
     except Exception as e:
@@ -173,7 +173,7 @@ def alert(date):
     :param date: 日期 xxxx-xx-xx
     :return:
     """
-    files = os.listdir('./static/data_img/')
+    files = os.listdir('./app/static/data_img/')
     exist = False
     for file in files:
         if date in file:

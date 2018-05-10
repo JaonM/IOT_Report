@@ -43,11 +43,12 @@ def generating_report():
     print(start_date)
     start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
+    code=1
     while start_date <= end_date:
         analyze_result = analyze_data(str(start_date).split()[0])
         file_name = generalize_report(str(start_date), total_result=analyze_result)
         print(file_name)
-        code = insert_report(file_name, file_path='../reports/' + file_name)
+        # code = insert_report(file_name, file_path='../reports/' + file_name)
         if code == -1:
             return jsonify({'code': -1, 'info': '存入数据库失败,生成终止'})
         start_date = start_date + datetime.timedelta(days=1)
