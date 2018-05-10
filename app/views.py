@@ -110,7 +110,7 @@ def load():
 
 
 @app.route('/alert', methods=['POST'])
-def alert():
+def alert_loss():
     date = request['date']
     results = alert(date)
     code = 1
