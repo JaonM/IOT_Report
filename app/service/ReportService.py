@@ -173,7 +173,7 @@ def alert(date):
     :param date: 日期 xxxx-xx-xx
     :return:
     """
-    files = os.listdir('./static/data_img')
+    files = os.listdir('./static/data_img/')
     exist = False
     for file in files:
         if date in file:
@@ -214,6 +214,6 @@ def alert(date):
 
 
 if __name__ == '__main__':
-    create_data_img('2018-03-15')
+    # create_data_img('2018-03-15')
     # print(load_data('2018-03-15', '2018-03-16', 1))
-    # print(alert('2018-03-15'))
+    print(alert('2018-03-15'))

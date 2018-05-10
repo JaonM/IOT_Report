@@ -111,7 +111,7 @@ def load():
 
 @app.route('/alert', methods=['POST'])
 def alert_loss():
-    date = request['date']
+    date = request.form['date']
     results = alert(date)
     code = 1
     if len(results) == 0:
