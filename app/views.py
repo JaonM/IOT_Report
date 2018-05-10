@@ -65,7 +65,7 @@ def generate_graph():
     all = []
     code = 1
     while start_date <= end_date:
-        img_list = create_data_img(start_date)
+        img_list = create_data_img(str(start_date).split()[0])
         if img_list is None:
             code = -1
         all.extend(img_list)
@@ -100,10 +100,10 @@ def loss_rate_analyze():
 
 @app.route('/load_data', methods=['POST'])
 def load():
-    start_date = request['start_date']
-    end_date = request['end_date']
-    page_num = request['page_num']
-    result = load_data(start_date, end_date, page_num)
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    page_num = request.form['page_num']
+    result = load_data(start_date, end_date, int(page_num))
     code = 1
     if len(result) == 0:
         code = -1
