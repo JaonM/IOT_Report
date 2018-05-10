@@ -173,7 +173,7 @@ def alert(date):
     :param date: 日期 xxxx-xx-xx
     :return:
     """
-    files = os.listdir('../static/data_img')
+    files = os.listdir('./static/data_img')
     exist = False
     for file in files:
         if date in file:
