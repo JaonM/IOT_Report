@@ -157,7 +157,12 @@ color: white;
        </div>
     </div>
     <div id="graphics" class="container box" style=" height: 62%; margin-bottom: 20px; margin-left: 20px; float:left; background-color: white;">
-      <!-- <img style="width: 53%; display: block; " src="../assets/img/analysis.png"> -->
+          <div id="ttext1" class="alter-image"  style=" float: left;">
+              <!--<a href="#" > Alter-image </a>-->
+          </div>
+          <div id="ttext2" class="alter-text" style="font-size: 36px;">
+              <!--<a href="#" > Alter-text </a>height: 31%;float: center;top:-50%; text-align:center;-->
+          </div>
     </div>
 
   </div>
@@ -178,13 +183,17 @@ $(document).ready(function(){
 
   $('#search').click(function(){
       var date = $('#date').val();
-      <!--a=$.ajax({url: '../static/data_img/a.txt'});-->
-      <!--$("#graphics").html(a.responseText);-->
-      <!--$('#graphics').load('../static/data_img/343036305D375E05 2018-03-15.jpg');-->
-
       if(date != '')
       {
           alert(date);
+          a=$.ajax({url: './static/data_img/a.txt',async:false});
+          $("#ttext2").html(a.responseText);
+          $('#ttext1').empty().append(
+             $("<img />").attr(
+             "src",
+             "./static/data_img/343036305D375E05 2018-03-15.jpg"
+             )
+          );
           $.ajax({
               url: '/alert',
               data: {date: date},
