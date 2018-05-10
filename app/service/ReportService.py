@@ -152,18 +152,27 @@ def load_data(start_date, end_date, page_num):
     db = connect()
     cursor = db.cursor()
 
-    page_num -= 1
-    cursor.execute("select tb2.eui,tb2.temperature 温度,tb2.humidity 湿度, tb2.batt 电量,tb2.current 电流,tb2.voltage 电压,tb2.power 功率,tb2.ts 获取时间,tb1.name 传感器名称,tb3.name 所属设备,tb4.name 所属酒店\
-                                    from tb_sensor_data tb2 LEFT JOIN tb_sensor tb1 on tb1.code = tb2.eui LEFT JOIN tb_equipment tb3 on tb3.equipment_id = tb1.equipment_id \
-                                    LEFT JOIN tb_customer tb4 on tb4.customer_id = tb1.customer_id where (tb2.eui='9896830000000008' or tb2.eui='9896830000000002' or tb2.eui = '9896830000000003' \
-                                     or tb2.eui='9896830000000004' or tb2.eui = '9896830000000006' or tb2.eui = '3786E6ED0034004B' or \
-                                     tb2.eui = '3768B26900230053' or tb2.eui = '4768B269002B0059' or tb2.eui = '4768B269001F003F' or \
-                                     tb2.eui='4778B269003B002F' or tb2.eui='3430363057376506' or tb2.eui='3430363067378B07' or tb2.eui = '3430363064378607' \
-                                     or tb2.eui='343036305D375E05' or tb2.eui = '3430363064378007') and tb2.ts > '" + start_date + "' and tb2.ts< '" + end_date + "'  ORDER BY tb2.ts ASC limit " + str(
-        page_num) + ",20")
+    if page_num == -1:
+        cursor.execute("select tb2.eui,tb2.temperature 温度,tb2.humidity 湿度, tb2.batt 电量,tb2.current 电流,tb2.voltage 电压,tb2.power 功率,tb2.ts 获取时间,tb1.name 传感器名称,tb3.name 所属设备,tb4.name 所属酒店\
+                                            from tb_sensor_data tb2 LEFT JOIN tb_sensor tb1 on tb1.code = tb2.eui LEFT JOIN tb_equipment tb3 on tb3.equipment_id = tb1.equipment_id \
+                                            LEFT JOIN tb_customer tb4 on tb4.customer_id = tb1.customer_id where (tb2.eui='9896830000000008' or tb2.eui='9896830000000002' or tb2.eui = '9896830000000003' \
+                                             or tb2.eui='9896830000000004' or tb2.eui = '9896830000000006' or tb2.eui = '3786E6ED0034004B' or \
+                                             tb2.eui = '3768B26900230053' or tb2.eui = '4768B269002B0059' or tb2.eui = '4768B269001F003F' or \
+                                             tb2.eui='4778B269003B002F' or tb2.eui='3430363057376506' or tb2.eui='3430363067378B07' or tb2.eui = '3430363064378607' \
+                                             or tb2.eui='343036305D375E05' or tb2.eui = '3430363064378007') and tb2.ts > '" + start_date + "' and tb2.ts< '" + end_date + "'  ORDER BY tb2.ts ASC ")
+    else:
+        page_num -= 1
+        cursor.execute("select tb2.eui,tb2.temperature 温度,tb2.humidity 湿度, tb2.batt 电量,tb2.current 电流,tb2.voltage 电压,tb2.power 功率,tb2.ts 获取时间,tb1.name 传感器名称,tb3.name 所属设备,tb4.name 所属酒店\
+                                            from tb_sensor_data tb2 LEFT JOIN tb_sensor tb1 on tb1.code = tb2.eui LEFT JOIN tb_equipment tb3 on tb3.equipment_id = tb1.equipment_id \
+                                            LEFT JOIN tb_customer tb4 on tb4.customer_id = tb1.customer_id where (tb2.eui='9896830000000008' or tb2.eui='9896830000000002' or tb2.eui = '9896830000000003' \
+                                             or tb2.eui='9896830000000004' or tb2.eui = '9896830000000006' or tb2.eui = '3786E6ED0034004B' or \
+                                             tb2.eui = '3768B26900230053' or tb2.eui = '4768B269002B0059' or tb2.eui = '4768B269001F003F' or \
+                                             tb2.eui='4778B269003B002F' or tb2.eui='3430363057376506' or tb2.eui='3430363067378B07' or tb2.eui = '3430363064378607' \
+                                             or tb2.eui='343036305D375E05' or tb2.eui = '3430363064378007') and tb2.ts > '" + start_date + "' and tb2.ts< '" + end_date + "'  ORDER BY tb2.ts ASC limit " + str(
+            page_num) + ",20")
     result = list()
     for row in cursor.fetchall():
-        result.append({'eui': row[0], 'temperature': row[0], 'humidity': row[1], 'battery': row[2], 'time': row[6]})
+        result.append({'eui': row[0], 'temperature': row[1], 'humidity': row[2], 'battery': row[3], 'time': row[7]})
     return result
 
 
