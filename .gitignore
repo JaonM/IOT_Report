@@ -106,4 +106,4 @@ ENV/
 *.jpg
 
 .idea/
-.txt
+*.txt

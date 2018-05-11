@@ -117,6 +117,7 @@ def alert_loss():
     code = 1
     if len(results) == 0:
         code = -1
+    print({'code': code, 'results': results})
     return jsonify({'code': code, 'results': results})
 
 

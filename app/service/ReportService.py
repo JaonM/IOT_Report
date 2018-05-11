@@ -201,22 +201,22 @@ def alert(date):
             result['eui'] = eui
             for file in file_list:
                 if file.split()[0] == str(eui):
-                    result['img_path'] = file
+                    result['img_path'] = '../static/data_img/'+file
             sub_df = df[df['eui'] == eui]
             alert_list = list()
             for index, item in sub_df.iterrows():
                 if 0.3 <= item['lost_rate'] < 0.6:
                     alert_list.append(
-                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '轻微丢包'})
+                        {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '轻微丢包'})
                 elif 0.6 <= item['lost_rate'] < 0.8:
                     alert_list.append(
-                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '中等严重丢包'})
+                        {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '中等严重丢包'})
                 elif item['lost_rate'] >= 0.8:
                     alert_list.append(
-                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '严重丢包'})
+                        {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '严重丢包'})
                 else:
                     alert_list.append(
-                        {'start_time': item['start_time'], 'end_time': item['end_time'], 'alert_info': '正常接收'})
+                        {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '正常接收'})
             result['alert'] = alert_list
             result_list.append(result)
     return result_list
