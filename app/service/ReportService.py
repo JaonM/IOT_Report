@@ -215,8 +215,9 @@ def alert(date):
                     alert_list.append(
                         {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '严重丢包'})
                 else:
-                    alert_list.append(
-                        {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '正常接收'})
+                    continue
+                    # alert_list.append(
+                    #     {'start_time': str(item['start_time']), 'end_time': str(item['end_time']), 'alert_info': '正常接收'})
             result['alert'] = alert_list
             result_list.append(result)
     return result_list
