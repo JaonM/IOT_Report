@@ -168,16 +168,16 @@
         </div>
     </div>
     <div id="graphics" class="container box"
-         style=" height: 100%; margin-bottom: 20px; margin-left: 20px; float:left; background-color: white;">
+         style=" margin-bottom: 20px; margin-left: 20px; float:left; background-color: white;">
         <ul>
 
         </ul>
-        <div id="ttext1" class="alter-image" style=" float: left;">
-            <!--<a href="#" > Alter-image </a>-->
-        </div>
-        <div id="ttext2" class="alter-text" style="font-size: 36px;">
-            <!--<a href="#" > Alter-text </a>height: 31%;float: center;top:-50%; text-align:center;-->
-        </div>
+        <!--<div id="ttext1" class="alter-image" style=" float: left;">-->
+            <!--&lt;!&ndash;<a href="#" > Alter-image </a>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div id="ttext2" class="alter-text" style="font-size: 36px;">-->
+            <!--&lt;!&ndash;<a href="#" > Alter-text </a>height: 31%;float: center;top:-50%; text-align:center;&ndash;&gt;-->
+        <!--</div>-->
     </div>
 
 </div>
@@ -210,14 +210,14 @@
                                 // alert(data.result[i].eui)
                                 var obj = data.results[i];
                                 ul.append(
-                                    '<li><div style="float:left;"><img src="'+obj.img_path+'"></div>' +
-                                    '<div id="sub_'+i+'" style="float:right;font-size: 16px; width: 300px"><ul></ul></div></li>'
+                                    '<li><div style="height: 50%;"><div style="float:left;"><img src="'+obj.img_path+'"></div>' +
+                                    '<div id="sub_'+i+'" style="float:left;font-size: 16px; width: 300px"><ul></ul></div></div></li>'
                                 );
                                 var infos = obj.alert;
                                 var _ul = $('#sub_'+i+'>ul');
 
                                 for(var j=0;j<infos.length;j++){
-                                    _ul.append('<li><span>'+infos[j].start_time+'</span><span>'+infos[j].end_time+'</span>' +
+                                    _ul.append('<li><span>'+infos[j].start_time+'&nbsp</span><span>'+infos[j].end_time+'</span>' +
                                         '<span>'+infos[j].alert_info+'</span></li>')
                                 }
                             }
