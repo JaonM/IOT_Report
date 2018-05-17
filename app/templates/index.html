@@ -99,6 +99,28 @@
         .dropdown:hover .dropdown-menu {
             display: block;
         }
+
+        .banner:hover {
+            font-size: 1.1em;
+            color: white;
+            display: block;
+        }
+        #left-body ul li .banner{
+            margin-bottom: 20px;
+            margin-top: 5px;
+            display: block;
+            padding-left: 11px;
+        }
+        #left-body ul li ul {
+           display: none;
+         }
+        #left-body ul li:hover ul {
+            margin-bottom: 20px;
+            margin-top: 5px;
+            display: block;
+            padding-left: 11px;
+         }
+
     </style>
 
 
@@ -109,24 +131,24 @@
     <div id="logo"><a href="/index"><img src="../static/img/logo.png"></a></div>
     <ul>
         <li>
-        <span class="glyphicon glyphicon-pencil">
-        <a href="http://localhost:5000/index"> 生成报告</a></span>
+            <div  class="banner"><span class="glyphicon glyphicon-bell" style="float:left; margin-top: 40%;">  数据统计</span></div>
+            <ul>
+                <li><a href="http://localhost:5000/statistics"> 数据记录统计</a></li>
+            </ul>
         </li>
         <li>
-        <span class="glyphicon glyphicon-file">
-        <a href="http://localhost:5000/report"> 丢包预警</a></span>
+            <div class="banner"><span class="glyphicon glyphicon-object-align-bottom" style="float:left;margin-top: 40%;">  丢包分析</span></div>
+            <ul>
+                <li><a href="http://localhost:5000/report"> 丢包预警</a></li>
+                <li><a href="http://localhost:5000/graph"> 丢包缺失柱状图</a></li>
+                <li><a href="http://localhost:5000/analysis"> 设备丢包分析</a></li>
+            </ul>
         </li>
         <li>
-        <span class="glyphicon glyphicon-object-align-bottom">
-        <a href="http://localhost:5000/graph"> 丢包缺失柱状图</a></span>
-        </li>
-        <li>
-        <span class="glyphicon glyphicon-search lg">
-        <a href="http://localhost:5000/analysis"> 设备丢包分析</a></span>
-        </li>
-        <li>
-        <span class="glyphicon glyphicon-bell">
-        <a href="http://localhost:5000/statistics"> 数据记录统计</a> </span>
+            <div class="banner"><span class="glyphicon glyphicon-pencil" style="float:left;margin-top: 40%;">  报告生成</span></div>
+            <ul>
+                <li><a href="http://localhost:5000/index"> 生成报告</a></li>
+            </ul>
         </li>
     </ul>
 </div>
@@ -352,25 +374,6 @@
             autoclose: true
         });
 
-        // fetch_data('no');
-
-        // function fetch_data(is_date_search, start_date='', end_date='')
-        // {
-        //  var dataTable = $('#order_data').DataTable({
-        //   "processing" : true,
-        //   "serverSide" : true,
-        //   "order" : [],
-        //   "ajax" : {
-        //    url:"/generating_report",
-        //    type:"POST",
-        //    data:{
-        //     is_date_search:is_date_search, start_date:start_date, end_date:end_date
-        //    }
-        //   }
-        //  });
-        //  // console.log(result);
-        // }
-
         $('#generate').click(function () {
             var start_date = $('#start_date').val();
             var end_date = $('#end_date').val();
@@ -391,9 +394,27 @@
         });
         // console.log(dataTable);
 
-    });
+        <!--$(#'group-item-nav').click(function () {-->
+            <!--$(".me-Submenu-list-group").hide();-->
+		    <!--$(this).parent().addClass("active").siblings().removeClass("active");-->
+		    <!--$(this).siblings(".me-Submenu-list-group").show();-->
+
+		<!--});-->
+
+	});
+
+    <!--$(function() {-->
+	          <!--$(document).on("click", ".me-list-group-item-nav", function() {-->
+		             <!--$(".me-Submenu-list-group").hide();-->
+		             <!--$(this).parent().addClass("active").siblings().removeClass("active");-->
+		             <!--$(this).siblings(".me-Submenu-list-group").show();-->
+		      <!--});-->
+	<!--});-->
 
 </script>
+
+
+
 </body>
 </html>
 
