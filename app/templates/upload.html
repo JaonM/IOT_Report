@@ -84,6 +84,28 @@
             margin-left: 20px;
             margin-right: 20px;
         }
+        .banner:hover {
+            font-size: 1.1em;
+            color: white;
+            display: block;
+        }
+        #left-body ul li .banner{
+            margin-bottom: 20px;
+            margin-top: 5px;
+            display: block;
+            padding-left: 11px;
+        }
+        #left-body ul li ul {
+           display: none;
+         }
+        #left-body ul li:hover ul {
+            margin-bottom: 20px;
+            margin-top: 5px;
+            display: block;
+            padding-left: 36px;
+            font-size:16px;
+         }
+
     </style>
 
 
@@ -94,24 +116,24 @@
     <div id="logo"><a href="/index"><img src="../static/img/logo.png"></a></div>
     <ul>
         <li>
-        <span class="glyphicon glyphicon-pencil">
-        <a href="http://localhost:5000/index"> 生成报告</a></span>
+            <div  class="banner" ><span class="glyphicon glyphicon-bell" style="float:left; margin-top: 40%;font-size:19px;">  数据统计</span></div>
+            <ul >
+                <li><a href="http://localhost:5000/statistics">数据记录统计</a></li>
+            </ul>
         </li>
         <li>
-        <span class="glyphicon glyphicon-file">
-        <a href="http://localhost:5000/report"> 丢包预警</a></span>
+            <div class="banner"><span class="glyphicon glyphicon-object-align-bottom" style="float:left;margin-top: 40%;font-size:19px;">  丢包分析</span></div>
+            <ul style="margin-bottom: 20px;margin-top: 5px;display: block;padding-left: 36px;font-size:16px;">
+                <li><a href="http://localhost:5000/report">丢包预警</a></li>
+                <li><a href="http://localhost:5000/graph">丢包缺失柱状图</a></li>
+                <li><a href="http://localhost:5000/analysis">设备丢包分析</a></li>
+            </ul>
         </li>
         <li>
-        <span class="glyphicon glyphicon-object-align-bottom">
-        <a href="http://localhost:5000/graph"> 丢包缺失柱状图</a></span>
-        </li>
-        <li>
-        <span class="glyphicon glyphicon-search lg">
-        <a href="http://localhost:5000/analysis"> 设备丢包分析</a></span>
-        </li>
-        <li>
-        <span class="glyphicon glyphicon-bell">
-        <a href="http://localhost:5000/statistics"> 数据记录统计</a> </span>
+            <div class="banner"><span class="glyphicon glyphicon-pencil" style="float:left;margin-top: 40%;font-size:19px;">  报告生成</span></div>
+            <ul >
+                <li><a href="http://localhost:5000/index">生成报告</a></li>
+            </ul>
         </li>
     </ul>
 </div>
@@ -120,7 +142,7 @@
 
    <div id="right-body-upper;" style=" position: relative; margin-bottom: 20px; margin-right: 20px; border: none;"
          class="container box">
-        <h1 style="float: left;" align="center" font-family="Halflings">商用厨房物联网智能传感器数据分析与报表生成系统</h1>
+        <h1 style="float: left;" align="center" font-family="Halflings">商用厨房物联网智能传感器数据分析系统(报表生成&预警分析)</h1>
         <div id="upper-right-side" style="float:right; width:40%;">
 
             <div class="form-group col-xs-6">
